@@ -1,0 +1,82 @@
+# Delivery Optimization Dashboard
+
+This project is a Delivery Optimization Dashboard built using Dash and Plotly. The dashboard allows users to run optimization algorithms on delivery datasets and compare the results with provided solutions.
+
+## Prerequisites
+
+- Python 3.7 or higher
+- Required Python packages (listed in `requirements.txt`)
+
+## Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/yourusername/delivery-optimization-dashboard.git
+    cd delivery-optimization-dashboard
+    ```
+
+2. Create a virtual environment and activate it:
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+
+3. Install the required packages:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Project Structure
+
+- [app.py](http://_vscodecontentref_/0): The main application file that contains the Dash app and callbacks.
+- [main.py](http://_vscodecontentref_/1): Contains the functions for processing data, running the algorithm, and plotting the solution.
+- [data](http://_vscodecontentref_/2): Directory containing the input datasets.
+- [check_solution](http://_vscodecontentref_/3): Directory containing the provided solution files.
+- `requirements.txt`: List of required Python packages.
+
+## Running the Application
+
+1. Ensure that the [data](http://_vscodecontentref_/4) and [check_solution](http://_vscodecontentref_/5) directories contain the appropriate files.
+
+2. Run the Dash application:
+
+    ```bash
+    python app.py
+    ```
+
+3. Open your web browser and navigate to `http://127.0.0.1:8050/` to view the dashboard.
+
+## Usage
+
+### Run Entire Dataset
+
+1. Configure the algorithm parameters (Population Size, Number of Generations, Mutation Rate, Elite Size) in the "Run Entire Dataset" tab.
+2. Click the "Run All" button to run the algorithm on all datasets in the [data](http://_vscodecontentref_/6) directory.
+3. The dashboard will display the average runtime and average deviation for each number of delivery points.
+
+### Run Single File
+
+1. Upload a single dataset file in the "Run Single File" tab.
+2. Configure the algorithm parameters (Population Size, Number of Generations, Mutation Rate, Elite Size).
+3. Click the "Run Algorithm" button to run the algorithm on the uploaded dataset.
+4. The dashboard will display the runtime, best solution, and best delivery time for the uploaded dataset.
+
+## Example Solution File Format
+
+The provided solution files in the [check_solution](http://_vscodecontentref_/7) directory should follow this format:
+
+```plaintext
+/* Number of Operations */
+6
+/* List of Operations. */
+/* Start	End	Fly	#Internal	Locations...*/
+0	0	-1	0	/* Operation cost : 0.0*/
+0	9	8	0	/* Operation cost : 73.82644921337591*/
+9	9	6	0	/* Operation cost : 6.0*/
+9	7	10	1	3	/* Operation cost : 43.9679825449688*/
+7	2	1	0	/* Operation cost : 21.470910553583888*/
+2	0	4	1	5	/* Operation cost : 75.92342345286067*/
+/* Total cost : 221.18876576478925 */
